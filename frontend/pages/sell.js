@@ -1,11 +1,12 @@
-import Link from "next/link";
+import CreateItem from '../components/CreateItem';
+import PleaseSignIn from '../components/PleaseSignIn';
 
-const Sell = () => {
-    return (
-        <div>
-            <p>Sell</p>
-        </div>
-    );
-};
+const Sell = props => (
+  <div>
+    <PleaseSignIn>
+      <CreateItem />
+    </PleaseSignIn>
+  </div>
+);
 
 export default Sell;
