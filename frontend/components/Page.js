@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider, injectGlobal } from "styled-components";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import Meta from "./Meta";
 
 const theme = {
-    brandPink: "#ED1651",
+    red: "#FF0000",
     black: "#393939",
     grey: "#3A3A3A",
     lightgrey: "#E1E1E1",
@@ -24,6 +24,33 @@ const Inner = styled.div`
     padding: 2rem;
 `;
 
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'radnika_next';
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  html {
+    box-sizing: border-box;
+    font-size: 10px;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 2;
+    font-family: 'radnika_next';
+  }
+  a {
+    text-decoration: none;
+    color: ${theme.black};
+  }
+`;
+
 class Page extends Component {
     render() {
         return (
@@ -32,6 +59,7 @@ class Page extends Component {
                     <Meta />
                     <Header />
                     <Inner>{this.props.children}</Inner>
+                    <GlobalStyle />
                 </StyledPage>
             </ThemeProvider>
         );
